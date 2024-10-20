@@ -1,0 +1,19 @@
+Feature: Reportar un terapeuta
+# Como usuario, quiero reportar a un terapeuta sí considero que ha incumplido alguna norma de la plataforma para garantizar la calidad del servicio.
+
+Scenario: Reporte registrado exitosamente.
+    Given que el usuario reporta un terapeuta por incumplimiento de normas,
+    | Motivo del Reporte |
+    | "El terapeuta no siguió el código de ética." |
+    When el usuario envía el reporte,
+    Then el sistema debe registrar el reporte y mostrar un mensaje de éxito.
+
+Feature: Reportar un terapeuta
+# Como usuario, quiero reportar a un terapeuta sí considero que ha incumplido alguna norma de la plataforma para garantizar la calidad del servicio.
+
+Scenario: Error al enviar el reporte por falta de conexión.
+    Given que el usuario intenta enviar un reporte sin conexión a internet,
+    | Motivo del Reporte |
+    | "El terapeuta no cumplió con las normas de la plataforma." |
+    When el usuario envía el reporte,
+    Then el sistema debe mostrar un mensaje de error indicando la falta de conexión.
