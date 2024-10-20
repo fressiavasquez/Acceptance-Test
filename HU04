@@ -1,0 +1,23 @@
+Feature: Actualización de perfil
+# Como usuario, quiero actualizar mi información personal para mantener mi cuenta al día.
+
+Scenario: Actualización de perfil exitosa.
+    Given que el usuario ha ingresado datos válidos para actualizar su perfil:
+      | nombre      | apellido    | correo                 |
+      | "Juan"      | "Perez"     | "juan.perez@email.com" |
+    When el usuario envía los cambios en el perfil,
+    Then el sistema actualiza la información del perfil en la base de datos,
+    And el sistema muestra un mensaje que dice "Tu perfil ha sido actualizado exitosamente". 
+
+
+Feature: Actualización de perfil
+# Como usuario, quiero actualizar mi información personal para mantener mi cuenta al día.
+
+Scenario: Muestra un error si falta un campo obligatorio.
+    Given que el usuario no ha completado todos los campos obligatorios en el formulario de actualización:
+      | nombre      | apellido    | correo                 |
+      | ""          | "Pérez"     | "juan.perez@email.com" |
+    When el usuario intenta guardar los cambios,
+    Then el sistema muestra un mensaje que dice "Error: el campo 'nombre' es obligatorio",
+    And el sistema no actualiza la información del perfil,
+    And el formulario sigue visible para que el usuario complete los campos faltantes.
