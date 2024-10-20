@@ -1,0 +1,22 @@
+Feature: Sistema de valoraciones
+# Como administrador, quiero ver un promedio de las valoraciones recibidas por cada terapeuta para evaluar su rendimiento.
+
+Scenario: Valoraciones promedio mostradas correctamente.
+    Given que un terapeuta tiene valoraciones de usuarios,
+    | Terapeuta | Valoraciones |
+    | "Dra. Ana López" | 4.5 (5 valoraciones) |
+    | "Dr. Carlos Martínez" | 3.8 (10 valoraciones) |
+    When el usuario accede al perfil del terapeuta para ver las valoraciones,
+    Then el sistema debe mostrar el promedio de valoraciones recibidas por el terapeuta,
+    | Promedio de Valoraciones |
+    | "Dra. Ana López: 4.5" |
+    | "Dr. Carlos Martínez: 3.8" |
+
+
+Feature: Sistema de valoraciones
+# Como administrador, quiero ver un promedio de las valoraciones recibidas por cada terapeuta para evaluar su rendimiento.
+
+Scenario: Error al acceder a valoraciones.
+    Given que hay un problema técnico o el terapeuta no tiene valoraciones,
+    When el usuario intenta ver las valoraciones del terapeuta,
+    Then el sistema debe mostrar un mensaje de error o indicar que no hay valoraciones disponibles.
