@@ -1,0 +1,30 @@
+Feature: Disponibilidad
+# Como usuario de la aplicación, quiero que la aplicación esté disponible 24/7, 
+# para que pueda acceder a apoyo y recursos en cualquier momento del día, sin importar la hora o el lugar.
+
+Scenario: Tiempo de Disponibilidad 
+    Given que la aplicación está en funcionamiento y disponible para los usuarios, 
+    When un usuario intenta acceder a la aplicación en cualquier momento del día, ya sea durante el día o en la noche, 
+    Then la aplicación debe estar completamente operativa y accesible, con un tiempo de inactividad mínimo y programado 
+    únicamente para el mantenimiento regular, garantizando que los usuarios puedan utilizar la aplicación en cualquier 
+    momento sin interrupciones inesperadas, 
+    | Un usuario accede a la aplicación a las 3:00 a.m. para revisar sus sesiones pasadas o para interactuar con el psicólogo 
+    virtual. La aplicación responde rápidamente, permitiendo el acceso a las funcionalidades principales sin problemas. 
+    En caso de una ventana de mantenimiento programada, el usuario es notificado con antelación y el sistema se reestablece 
+    en el horario indicado, minimizando el impacto en la experiencia del usuario. | 
+
+
+Feature: Disponibilidad
+# Como usuario de la aplicación, quiero que la aplicación esté disponible 24/7, 
+# para que pueda acceder a apoyo y recursos en cualquier momento del día, sin importar la hora o el lugar.
+
+Scenario: Comunicación de Mantenimiento
+    Given que se realiza mantenimiento o actualizaciones programadas para la aplicación,
+    When el equipo de desarrollo lleva a cabo estas actividades, 
+    Then los usuarios deben ser informados con antelación sobre el período de inactividad planificado, y la aplicación debe estar 
+    fuera de servicio solo durante el tiempo programado, con una comunicación clara sobre el tiempo de inactividad y la reanudación 
+    del servicio para minimizar el impacto en los usuarios, 
+    | Una semana antes de una actualización importante de la aplicación, los usuarios reciben una notificación informando que la 
+    aplicación estará fuera de servicio el día lunes de 2:00 a.m. a 4:00 a.m. por tareas de mantenimiento. El día programado, 
+    cuando un usuario intenta acceder a la aplicación dentro de ese período, recibe un mensaje de mantenimiento que indica el horario 
+    exacto en que el servicio se reanudará. Una vez finalizado el mantenimiento, la aplicación vuelve a estar operativa según lo previsto. |
