@@ -1,0 +1,19 @@
+Feature: Seleccionar terapeuta
+# Como usuario, quiero buscar y seleccionar un terapeuta según mi necesidad para tener sesiones personalizadas.
+
+Scenario: El terapeuta se selecciona exitosamente.
+    Given que el usuario ha buscado y encontrado un terapeuta disponible:
+      | Nombre       | Especialidad        |
+      | "Dra. Gómez" | "Ansiedad"          |
+    When el usuario confirma la selección del terapeuta,
+    Then el sistema registra la selección del terapeuta en la cuenta del usuario,
+    And el sistema muestra un mensaje que dice "Has seleccionado a la Dra. Gómez como tu terapeuta. Te contactaremos pronto para agendar tu sesión".
+
+
+Feature: Seleccionar terapeuta
+# Como usuario, quiero buscar y seleccionar un terapeuta según mi necesidad para tener sesiones personalizadas.
+Scenario: Muestra un error si no hay terapeutas disponibles en ese momento.
+    Given que no hay terapeutas disponibles para la búsqueda del usuario,
+    When el usuario intenta seleccionar un terapeuta,
+    Then el sistema muestra un mensaje que dice "Lo sentimos, no hay terapeutas disponibles en este momento. Inténtalo más tarde o ajusta tu búsqueda".
+    And el sistema no permite completar la selección.
