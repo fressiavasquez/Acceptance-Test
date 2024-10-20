@@ -1,0 +1,23 @@
+Feature: Recomendaciones de terapeutas
+# Como usuario, quiero recibir recomendaciones automáticas de terapeutas basadas en mis sesiones anteriores para facilitar mi elección.
+
+Scenario: Recomendaciones generadas y mostradas correctamente.
+    Given que el usuario ha tenido sesiones previas y hay datos disponibles,
+    | Sesiones Previas |
+    | "Sesión 1: Terapia de pareja" |
+    | "Sesión 2: Terapia individual" |
+    | "Sesión 3: Terapia cognitivo-conductual" |
+    When el sistema genera recomendaciones de terapeutas basadas en datos previos,
+    Then el usuario debe recibir una lista de recomendaciones relevantes.
+    | Recomendaciones de Terapeutas |
+    | "Terapeuta A - Especialidad en Terapia de pareja" |
+    | "Terapeuta B - Especialidad en Terapia individual" |
+    | "Terapeuta C - Especialidad en Terapia cognitivo-conductual" |
+
+Feature: Recomendaciones de terapeutas
+# Como usuario, quiero recibir recomendaciones automáticas de terapeutas basadas en mis sesiones anteriores para facilitar mi elección.
+
+Scenario: No se generan recomendaciones sin datos suficientes.
+    Given que no hay datos suficientes para generar recomendaciones,
+    When el usuario solicita recomendaciones de terapeutas,
+    Then el sistema debe mostrar un mensaje indicando que no se pueden generar recomendaciones.
