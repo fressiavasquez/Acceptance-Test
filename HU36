@@ -1,0 +1,28 @@
+Feature: Seguridad
+# Como usuario de la aplicación, quiero que mis datos personales y conversaciones estén cifrados,
+# para que mi privacidad esté protegida y la información sensible no sea accesible para terceros no autorizados.
+
+Scenario: Protección y Cifrado de Datos
+    Given que un usuario ha iniciado sesión en la aplicación y está interactuando con el psicólogo virtual,
+    When el usuario envía o recibe datos, incluyendo mensajes de texto, archivos de audio o videos,
+    Then todos los datos deben ser cifrados mientras se almacenan en la base de datos, para garantizar que la información 
+    sensible del usuario esté completamente protegida,
+    |                                    Usuario                       |  Aplicación | 
+    | "Voy a enviar algunos documentos personales. ¿Están protegidos?" | "Sí, todos los datos, incluidas tus conversaciones y archivos, 
+                                                                         están cifrados tanto durante el envío como cuando se almacenan. 
+                                                                         Tu privacidad está garantizada." |
+
+
+Feature: Seguridad
+# Como usuario de la aplicación, quiero que mis datos personales y conversaciones estén cifrados,
+# para que mi privacidad esté protegida y la información sensible no sea accesible para terceros no autorizados.
+
+Scenario: Acceso malintencionado
+    Given que un usuario malintencionado intenta acceder a los datos de otro usuario sin autorización, 
+    When el usuario malintencionado realiza una solicitud de acceso no autorizado a datos o intenta manipular el sistema, 
+    | Usuario malintencionado | Aplicación |
+    | "Intento acceder a las conversaciones privadas de otro usuario." | "Error: No se puede completar la solicitud en este momento. 
+                                                                          Por favor, intenta de nuevo más tarde." |
+    Then el sistema debe detectar la solicitud, rechazarla de inmediato, y proporcionar un mensaje de error genérico que no revele 
+    información sensible, garantizando que la privacidad y la integridad de los datos del usuario no se vean comprometidas.
+
