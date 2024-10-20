@@ -1,0 +1,18 @@
+Feature: Soporte técnico
+# Como usuario, quiero acceder a soporte técnico para resolver problemas relacionados con la app o mi cuenta.
+
+Scenario: Soporte técnico contactado exitosamente.
+    Given que el usuario solicita asistencia técnica,
+    | Tipo de Problema |
+    | "No puedo acceder a mi cuenta." |
+    When el usuario envía una solicitud de soporte,
+    Then el sistema debe registrar la solicitud y proporcionar una confirmación de contacto.
+
+Feature: Soporte técnico
+# Como usuario, quiero acceder a soporte técnico para resolver problemas relacionados con la app o mi cuenta.
+
+Scenario: Soporte técnico no disponible.
+    Given que el soporte técnico no está disponible en ese momento,
+    When el usuario intenta contactar al soporte,
+    Then el sistema debe mostrar un mensaje de error indicando que el soporte no está disponible: 
+    "Error: El soporte técnico no está disponible en este momento. Por favor, intenta más tarde."
