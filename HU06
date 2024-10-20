@@ -1,0 +1,23 @@
+Feature: Filtrar terapeutas
+# Como usuario, quiero filtrar terapeutas por especialidad y disponibilidad para encontrar a alguien adecuado.
+
+Scenario: El filtro muestra resultados según los criterios.
+    Given que el usuario ha aplicado filtros de búsqueda por especialidad y disponibilidad:
+      | Especialidad   | Disponibilidad |
+      | "Ansiedad"     | "Disponible ahora" |
+    When el usuario realiza la búsqueda,
+    Then el sistema muestra una lista de terapeutas que coinciden con los criterios:
+      | nombre       | especialidad   | disponibilidad |
+      | "Dra. Gómez" | "Ansiedad"     | "Disponible ahora" |
+    And el sistema muestra un mensaje que dice "Se encontraron 3 terapeutas según tus criterios de búsqueda". 
+
+Feature: Filtrar terapeutas
+# Como usuario, quiero filtrar terapeutas por especialidad y disponibilidad para encontrar a alguien adecuado.
+
+Scenario: No se encuentran resultados según los filtros aplicados.
+    Given que los filtros aplicados no coinciden con ningún terapeuta disponible:
+      | Especialidad | Disponibilidad      |
+      | "Estres"     | "Disponible mañana" |
+    When el usuario realiza la búsqueda,
+    Then el sistema muestra un mensaje que dice "No se encontraron terapeutas que coincidan con los criterios de búsqueda".
+    And el sistema permite modificar los filtros para realizar una nueva búsqueda.
