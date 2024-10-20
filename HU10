@@ -1,0 +1,20 @@
+Feature: Mensajería con terapeuta
+# Como usuario, quiero enviar mensajes a mi terapeuta entre sesiones para recibir orientación rápida en situaciones de estrés.
+
+Scenario: El chat se conecta exitosamente durante la sesión.
+    Given que el usuario escribe un mensaje y tiene conexión a internet,
+      | Mensaje                       |
+      | "Necesito orientación sobre mi ansiedad." |
+    When el usuario envía el mensaje a su terapeuta,
+    Then el sistema envía el mensaje con éxito,
+    And el sistema muestra un mensaje que dice "Tu mensaje ha sido enviado al terapeuta".
+
+Feature: Mensajería con terapeuta
+# Como usuario, quiero enviar mensajes a mi terapeuta entre sesiones para recibir orientación rápida en situaciones de estrés.
+
+Scenario: Muestra un error de conexión si el internet falla.
+    Given que el usuario intenta enviar un mensaje sin conexión a internet,
+      |        Mensaje                     |
+      | "No puedo manejar esta situación." |
+    When el usuario intenta enviar el mensaje,
+    Then el sistema muestra un mensaje de error que dice "Error: no hay conexión a internet. Por favor, verifica tu conexión y vuelve a intentar".
