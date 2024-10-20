@@ -1,0 +1,20 @@
+Feature: Cancelar sesión
+# Como usuario, quiero cancelar una sesión programada para reorganizar mi tiempo en caso de emergencia.
+
+Scenario: Cancelación de sesión exitosa con confirmación.
+    Given que el usuario solicita cancelar una sesión dentro del período permitido:
+      | Fecha        | Hora        |
+      | "2024-10-15" | "14:00"     |
+    When el usuario confirma la cancelación,
+    Then el sistema registra la cancelación en la base de datos,
+    And el sistema muestra un mensaje que dice "Tu sesión ha sido cancelada exitosamente".
+
+Feature: Cancelar sesión
+# Como usuario, quiero cancelar una sesión programada para reorganizar mi tiempo en caso de emergencia.
+
+Scenario: Error al intentar cancelar fuera del periodo permitido (menos de 24 horas antes).
+    Given que el usuario intenta cancelar una sesión con menos de 24 horas de anticipación:
+      | fecha        | hora         |
+      | "2024-10-14" | "14:00"     |
+    When el usuario confirma la cancelación,
+    Then el sistema muestra un mensaje que dice "Error: no puedes cancelar la sesión con menos de 24 horas de anticipación".
