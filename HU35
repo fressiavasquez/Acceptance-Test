@@ -1,0 +1,30 @@
+Feature: Rendimiento
+# Como usuario de la aplicación, quiero que la aplicación responda en menos de 2 segundos, 
+# para que pueda recibir retroalimentación y consejos de manera rápida y sin frustraciones.
+
+Scenario: Tiempo de Respuesta de la Aplicación
+    Given que un usuario inicia una conversación con la aplicación,
+    When el usuario envía un mensaje o consulta al psicólogo virtual, 
+    | Usuario | Aplicación | 
+    | "¿Cuáles son algunas técnicas para reducir la ansiedad?" | "Algunas técnicas efectivas 
+                                                                 para reducir la ansiedad incluyen  
+                                                                 la respiración profunda, la meditación 
+                                                                 y el ejercicio regular." |
+    Then la aplicación debe procesar la solicitud y responder con un mensaje relevante o la 
+    información solicitada en menos de 2 segundos, asegurando que la experiencia del usuario sea fluida y sin demoras perceptibles.
+
+Feature: Rendimiento
+# Como usuario de la aplicación, quiero que la aplicación responda en menos de 2 segundos, 
+para que pueda recibir retroalimentación y consejos de manera rápida y sin frustraciones.
+
+Scenario: Análisis de datos
+    Given que la aplicación realiza un análisis complejo de datos, como la evaluación de respuestas del usuario para 
+    proporcionar recomendaciones personalizadas
+    When el usuario solicita los resultados de dicho análisis, 
+    | Usuario                                    |            Aplicación | 
+    | "¿Cuáles son mis patrones de sueño 
+      según las respuestas de la última semana?" | Tu patrón de sueño muestra que duermes un promedio de 7 horas por noche, 
+                                                   pero te despiertas varias veces. Considera establecer una rutina de sueño 
+                                                   más consistente."      |
+    Then la aplicación debe completar el proceso de análisis y mostrar los resultados en menos de 2 segundos, incluso 
+    bajo carga alta, para mantener una experiencia de usuario eficiente.
