@@ -1,0 +1,22 @@
+Feature: Confirmación de pago
+# Como usuario, quiero recibir una confirmación después de pagar una sesión para tener un registro de mi compra.
+
+Scenario: Confirmación de pago recibido correctamente
+    Given que el usuario ha completado el proceso de pago,
+    | Método de Pago       |       Estado     |
+    | "Tarjeta de Crédito" | "Pago procesado" |
+    When el sistema procesa la transacción,
+    Then el sistema debe enviar una confirmación de que el pago se ha realizado con éxito,
+    And el usuario debe ver un mensaje de confirmación del pago
+
+Feature: Confirmación de pago
+# Como usuario, quiero recibir una confirmación después de pagar una sesión para tener un registro de mi compra.
+
+Scenario: No se recibe confirmación si la transacción falla
+    Given que el usuario intenta realizar un pago,
+    |    Método de Pago    |           Estado          |     
+    | "Tarjeta de Crédito" | "Error en la transacción" |
+    When ocurre un error en la transacción y no puede ser procesada,
+    Then el sistema debe mostrar un mensaje de error indicando la falla,
+    And el sistema no debe enviar ninguna confirmación de pago,
+ 
