@@ -1,0 +1,23 @@
+Feature: Iniciar sesión.
+# Como usuario registrado, quiero iniciar sesión en la plataforma para acceder a mi perfil y sesiones.
+
+Scenario: Inicio de sesión exitoso.
+    Given que el usuario ha ingresado un correo electrónico y una contraseña válidos:
+      | Correo                   | Contraseña    |
+      | "juan.perez@gmail.com"   | "password123" |
+    When el usuario envía los datos de inicio de sesión,
+    Then el sistema autentica al usuario en la plataforma,
+    And el sistema redirige al usuario a su perfil,
+    And el sistema muestra un mensaje que dice "Bienvenido/a, Juan Perez".
+
+
+Feature: Iniciar sesión.
+# Como usuario registrado, quiero iniciar sesión en la plataforma para acceder a mi perfil y sesiones.
+
+Scenario: Error de credenciales incorrectas.
+    Given que el usuario ha ingresado un correo electrónico o una contraseña incorrectos:
+      | correo                 | contraseña    |
+      | "juan.perez@gmail.com"   | "contraseñaErrónea" |
+    When el usuario intenta enviar los datos de inicio de sesión,
+    Then el sistema muestra un mensaje que dice "Error: las credenciales son incorrectas. Por favor, inténtalo de nuevo".
+    And el formulario de inicio de sesión sigue visible para que el usuario pueda intentar nuevamente.
