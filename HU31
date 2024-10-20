@@ -1,0 +1,25 @@
+Feature: Cambio de contraseña
+# Como usuario, quiero cambiar mi contraseña periódicamente para mantener la seguridad de mi cuenta.
+
+Scenario: Cambio de contraseña exitoso.
+    Given que el usuario ingresa la contraseña actual y una nueva contraseña válida,
+    | Ingrese contraseña actual | Nueva contraseña     |
+    | "Contraseña123"           | "NuevaContraseña456" |
+    When el usuario confirma el cambio de contraseña,
+    | Acción seleccionada |
+    | "Confirmar cambio de contraseña" |
+    Then el sistema debe actualizar la contraseña y mostrar un mensaje de éxito,
+    | "Tu contraseña se ha actualizado con éxito." | 
+
+Feature: Cambio de contraseña
+# Como usuario, quiero cambiar mi contraseña periódicamente para mantener la seguridad de mi cuenta.
+
+Scenario: Error al cambiar la contraseña si la actual no coincide.
+    Given que el usuario ingresa una contraseña actual incorrecta,
+    | Ingrese contraseña actual | 
+    | "Contraseña errónea"      |
+    When el usuario intenta cambiar la contraseña,
+    | Cambiar contraseña | 
+    | "NuevaContraseña456" |
+    Then el sistema debe mostrar un mensaje de error indicando que la contraseña actual no coincide con la registrada,
+    | "Error: La contraseña actual no coincide con la registrada." |
