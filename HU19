@@ -1,0 +1,24 @@
+Feature: Ver historial de pagos
+# Como usuario, quiero ver mi historial de pagos para llevar un control de los gastos realizados en la aplicación
+
+Scenario: Historial de pagos mostrado correctamente
+    Given que el usuario ha realizado pagos en la aplicación,
+    | Pagos Realizados |
+    | "Pago 1: Sesión de terapia - $50 - 01/10/2024" |
+    | "Pago 2: Sesión de terapia - $50 - 15/09/2024" |
+    | "Pago 3: Membresía mensual - $30 - 01/09/2024" |
+    When el usuario accede al historial de pagos,
+    Then el sistema debe mostrar un registro completo de todos los pagos realizados,
+    | Historial de Pagos |
+    | "1. Sesión de terapia - $50 - 01/10/2024" |
+    | "2. Sesión de terapia - $50 - 15/09/2024" |
+    | "3. Membresía mensual - $30 - 01/09/2024" |
+
+Feature: Ver historial de pagos
+# Como usuario, quiero tener acceso a un chat en tiempo real con mi terapeuta durante la sesión para una comunicación más fluida.
+
+Scenario: Mensaje de no historial si no hay pagos previos
+    Given que el usuario no ha realizado pagos previos
+    When el usuario accede al historial de pagos
+    Then el sistema debe mostrar un mensaje indicando que no hay historial de pagos disponible
+ 
