@@ -1,0 +1,29 @@
+Feature: Selección de método de pago
+# Como usuario, quiero seleccionar un método de pago (tarjeta, PayPal, etc.) para pagar las sesiones de manera conveniente.
+
+Scenario: Método de pago seleccionado correctamente
+    Given El usuario está en la página de selección de método de pago,
+    |    Métodos Disponibles  |
+    |    "Tarjeta de Crédito" |
+    |        "PayPal"         |
+    | "Transferencia Bancaria"|
+    When El usuario elige un método de pago válido como "tarjeta de crédito",
+    And El usuario confirma la selección del método de pago,
+    Then El sistema debe registrar el método de pago seleccionado,
+    And El sistema debe permitir al usuario continuar con el proceso de pago,
+    And El sistema muestra un mensaje de confirmación de que el método de pago ha sido seleccionado correctamente.
+
+Feature: Selección de método de pago
+# Como usuario, quiero seleccionar un método de pago (tarjeta, PayPal, etc.) para pagar las sesiones de manera conveniente.
+
+Scenario: Error al seleccionar un método de pago no aceptado
+    Given El usuario está en la página de selección de método de pago,
+    |     Métodos Disponibles |
+    |    "Tarjeta de Crédito" |
+    |         "PayPal"        |
+    | "Transferencia Bancaria"|
+    When El usuario selecciona un método de pago no aceptado como "bitcoins",
+    And El usuario intenta confirmar la selección,
+    Then El sistema debe mostrar un mensaje de error indicando que el método de pago no es aceptado,
+    And El usuario permanece en la página de selección de método de pago
+ 
