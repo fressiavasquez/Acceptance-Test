@@ -1,0 +1,21 @@
+Feature: Chat en tiempo real
+# Como usuario, quiero tener acceso a un chat en tiempo real con mi terapeuta durante la sesión para una comunicación más fluida.
+
+Scenario: El chat se conecta exitosamente durante la sesión.
+    Given que el usuario está en una sesión con el terapeuta,
+    When el usuario y el terapeuta inician el chat en tiempo real,
+    Then el sistema establece la conexión del chat exitosamente,
+    And el usuario y el terapeuta pueden intercambiar mensajes en tiempo real.
+    |                             Usuario                        |                         Terapeuta                               |
+    | "¿Cómo puedo manejar el estrés que estoy sintiendo ahora?" | "Vamos a trabajar en algunas técnicas de respiración profunda." |
+
+Feature: Chat en tiempo real
+# Como usuario, quiero tener acceso a un chat en tiempo real con mi terapeuta durante la sesión para una comunicación más fluida.
+
+Scenario: Muestra un error de conexión si el internet falla.
+    Given que el usuario está en una sesión con el terapeuta,
+    And el usuario experimenta una falla en la conexión a internet,
+    |                      Terapeuta                    |                   Usuario                 |
+    | "Podemos seguir con la técnica que vimos antes" | — (sin respuesta debido a la desconexión) |
+    When el usuario intenta usar el chat en tiempo real,
+    Then el sistema muestra un mensaje de error que dice "Error de conexión: no hay conexión a internet. Por favor, verifica tu conexión y vuelve a intentar".
