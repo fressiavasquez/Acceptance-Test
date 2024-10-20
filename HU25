@@ -1,0 +1,20 @@
+Feature: Preguntas frecuentes (FAQ)
+# Como usuario, quiero acceder a una sección de preguntas frecuentes para resolver dudas rápidamente sin necesidad de contactar a soporte.
+
+Scenario: FAQ cargadas y mostradas correctamente.
+    Given que el usuario accede a la sección de preguntas frecuentes,
+    When el usuario solicita ver las FAQ,
+    Then el sistema debe mostrar la lista de preguntas frecuentes y respuestas.
+    | Pregunta | "¿Cómo restablezco mi contraseña?"  |
+    | Respuesta | "Para restablecer tu contraseña, ve a la sección de 'Configuración' y selecciona 'Restablecer contraseña'. 
+                   Sigue las instrucciones enviadas a tu correo electrónico." 
+
+
+Feature: Preguntas frecuentes (FAQ)
+# Como usuario, quiero acceder a una sección de preguntas frecuentes para resolver dudas rápidamente sin necesidad de contactar a soporte.
+
+Scenario: Error al cargar las FAQ.
+    Given que hay un problema técnico o las FAQ no están disponibles,
+    When el usuario intenta acceder a las FAQ,
+    Then el sistema debe mostrar un mensaje de error indicando que no se pueden cargar las FAQ: 
+    "Error: No se pueden cargar las preguntas frecuentes en este momento. Por favor, intenta de nuevo más tarde."
