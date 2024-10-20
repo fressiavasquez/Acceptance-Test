@@ -1,0 +1,26 @@
+Feature: Compatibilidad
+# Como usuario de diferentes dispositivos, quiero que la aplicación funcione correctamente en una variedad de plataformas 
+# (iOS, Android, web), para que pueda acceder a la aplicación desde cualquier dispositivo sin problemas de compatibilidad.
+
+Scenario: Adaptación a Diversas Plataformas
+    Given que un usuario accede a la aplicación desde un dispositivo con sistema operativo iOS, como un iPhone o iPad,
+    When el usuario navega y utiliza las funcionalidades de la aplicación
+    Then la aplicación debe funcionar correctamente, sin errores de visualización ni problemas de funcionalidad, 
+    ofreciendo una experiencia de usuario consistente y ajustada a las especificaciones para la plataforma iOS,
+    | Un usuario abre la aplicación en un iPhone y puede acceder a todas las funcionalidades sin problemas de compatibilidad. 
+    La interfaz se adapta al tamaño de pantalla del iPhone, los menús y botones son totalmente funcionales, y el diseño es 
+    consistente con las pautas de iOS, ofreciendo una experiencia fluida tanto en el iPhone como en un iPad. No hay errores de 
+    visualización ni funcionalidad que limiten el uso. |
+
+Feature: Compatibilidad
+# Como usuario de diferentes dispositivos, quiero que la aplicación funcione correctamente en una variedad de plataformas 
+# (iOS, Android, web), para que pueda acceder a la aplicación desde cualquier dispositivo sin problemas de compatibilidad.
+
+Scenario: Interacción de sistemas operativos 
+    Given que un usuario accede a la aplicación desde un dispositivo con sistema operativo Android o desde una versión web en un navegador,
+    When el usuario interactúa con la aplicación,
+    Then la aplicación debe adaptarse adecuadamente a cada plataforma, asegurando que todas las funciones estén operativas y que la interfaz 
+    de usuario se ajuste correctamente a las especificaciones de Android o del navegador web, proporcionando una experiencia de usuario fluida y coherente,
+    | Un usuario accede a la aplicación desde un teléfono Android y, posteriormente, desde su computadora a través de un navegador web. La aplicación se ajusta 
+    perfectamente a la pantalla del móvil y también a la versión de escritorio, con todos los botones, menús, y funcionalidades disponibles sin diferencias 
+    importantes en el diseño. El usuario puede cambiar entre plataformas sin notar diferencias en la experiencia ni encontrar problemas de compatibilidad. | 
