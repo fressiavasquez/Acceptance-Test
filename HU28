@@ -1,0 +1,21 @@
+Feature: Ver políticas de privacidad
+# Como usuario, quiero ver las políticas de privacidad de la plataforma para entender cómo se manejan mis datos.
+
+Scenario: Políticas de privacidad cargadas correctamente.
+    Given que el usuario accede a la sección de políticas de privacidad,
+    | Documento |
+    | "Políticas de Privacidad" |
+    When el usuario solicita ver las políticas de privacidad,
+    Then el sistema debe mostrar el documento completo de políticas de privacidad,
+    And el usuario debe poder leer toda la información relacionada con el manejo de sus datos.
+
+Feature: Ver políticas de privacidad
+# Como usuario, quiero ver las políticas de privacidad de la plataforma para entender cómo se manejan mis datos.
+
+Scenario: Error al cargar las políticas de privacidad.
+    Given que hay un problema técnico o el documento no está disponible,
+    | Estado del documento |
+     "No disponible" |
+    When el usuario intenta acceder a las políticas de privacidad,
+    Then el sistema debe mostrar un mensaje de error indicando que no se pueden cargar las políticas de privacidad,
+    | "Error: No se pueden cargar las políticas de privacidad. Por favor, inténtalo de nuevo más tarde." |
