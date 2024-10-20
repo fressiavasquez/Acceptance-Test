@@ -1,0 +1,21 @@
+Feature: Programar sesión
+# Como usuario, quiero programar una sesión con mi terapeuta seleccionado para recibir atención en el horario adecuado.
+
+Scenario: La sesión se programa exitosamente.
+    Given que el usuario ha seleccionado una fecha y hora disponibles para la sesión:
+      | Fecha        | Hora        |
+      | "2024-10-15" | "14:00"     |
+    When el usuario confirma la programación de la sesión,
+    Then el sistema registra la sesión en la base de datos,
+    And el sistema muestra un mensaje que dice "Tu sesión ha sido programada exitosamente para el 15 de octubre a las 14:00".
+
+Feature: Programar sesión
+# Como usuario, quiero programar una sesión con mi terapeuta seleccionado para recibir atención en el horario adecuado.
+
+Scenario: El horario seleccionado ya no está disponible.
+    Given que el horario seleccionado para la sesión ha sido ocupado por otro usuario:
+      | Fecha        | Hora        |
+      | "2024-10-15" | "14:00"     |
+    When el usuario intenta programar la sesión en ese horario,
+    Then el sistema muestra un mensaje que dice "Lo sentimos, el horario seleccionado ya no está disponible. Por favor, elige otro horario".
+    And el sistema presenta opciones de horarios alternativos disponibles.
