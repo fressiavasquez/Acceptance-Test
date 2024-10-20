@@ -1,0 +1,24 @@
+Feature: Registro de usuario.
+# Como usuario nuevo, quiero registrarme en la aplicación para poder acceder a las funcionalidades del sistema. 
+
+Scenario: Registro exitoso tras ingresar todos los datos.
+    Given que el usuario ha ingresado todos los datos requeridos en el formulario de registro:
+      | Nombre       | Correo                 | Contraseña    |
+      | "Juan Pérez" | "juan.perez@email.com" | "password123" |
+    When el usuario envía el formulario de registro,
+    Then el sistema registra al usuario en la base de datos,
+    And el sistema redirige al usuario a la pantalla de inicio de sesión,
+    And el sistema muestra un mensaje que dice "Registro exitoso. Por favor, inicia sesión para continuar".
+    And el sistema envía un correo de confirmación al usuario.
+
+Feature: Registro de usuario.
+# Como usuario nuevo, quiero registrarme en la aplicación para poder acceder a las funcionalidades del sistema. 
+
+Scenario: Muestra un error si el correo ya está registrado.
+    Given que el usuario ha ingresado un correo que ya está registrado en el sistema:
+      | correo                |
+      | "juan.perez@email.com" |
+    When el usuario intenta enviar el formulario de registro,
+    Then el sistema no permite el registro,
+    And el sistema muestra un mensaje que dice "Error: el correo ya está registrado. Intenta con otro correo o inicia sesión".
+    And el formulario sigue visible para que el usuario pueda corregir los datos.
