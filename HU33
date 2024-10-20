@@ -1,0 +1,22 @@
+Feature: Revisar documentos recibidos
+# Como usuario, quiero revisar los archivos que me envía mi terapeuta para dar seguimiento a las recomendaciones.
+
+Scenario: Archivos recibidos correctamente.
+    Given que el terapeuta ha enviado archivos al usuario,
+    | Archivo válido |
+    | "recomendaciones.pdf" |
+    When el usuario accede a los archivos recibidos,
+    Then el sistema debe mostrar el archivo "recomendaciones.pdf" en la lista de archivos recibidos,
+    And el usuario debe poder revisar y descargar el archivo sin problemas.
+
+Feature: Revisar documentos recibidos
+# Como usuario, quiero revisar los archivos que me envía mi terapeuta para dar seguimiento a las recomendaciones.
+
+Scenario: Error al intentar descargar archivos.
+    Given que hay un problema técnico o los archivos no están disponibles,
+    When el usuario intenta descargar los archivos recibidos,
+    | Descargar |
+    | "recomendaciones.pdf" |
+    Then el sistema debe mostrar un mensaje de error indicando que los archivos no pueden ser descargados,
+    |  "Error: No se pueden descargar los archivos en este momento. Intenta más tarde." |
+
