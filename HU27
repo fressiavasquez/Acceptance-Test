@@ -1,0 +1,22 @@
+Feature: Aceptar términos y condiciones
+# Como usuario, quiero aceptar los términos y condiciones antes de registrarme en la plataforma para cumplir con los requisitos legales.
+
+Scenario: Aceptación exitosa de términos y condiciones.
+    Given que el usuario revisa y acepta los términos y condiciones antes de registrarse,
+    | Documento |
+    | "Términos y Condiciones de Servicio" |
+    When el usuario confirma la aceptación,
+    Then el sistema debe permitir que el usuario continúe con el registro,
+    | "Has aceptado los términos y condiciones. Puedes proceder con el registro." |
+
+Feature: Aceptar términos y condiciones
+# Como usuario, quiero aceptar los términos y condiciones antes de registrarme en la plataforma para cumplir con los requisitos legales.
+
+Scenario: Error al intentar continuar sin aceptar términos y condiciones.
+    Given que el usuario intenta registrarse sin aceptar los términos y condiciones,
+    | Estado de aceptación | | "No aceptado" |
+    When el usuario intenta continuar con el registro,
+    Then el sistema debe mostrar un mensaje de error indicando que debe aceptar los términos y condiciones para proceder,
+    | "Error: Debes aceptar los términos y condiciones para proceder con el registro." |
+    And el sistema no permite que el usuario avance en el proceso de registro.
+
