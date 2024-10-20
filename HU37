@@ -1,0 +1,26 @@
+Feature: Escalabilidad
+# Como administrador de la aplicación, quiero que la aplicación pueda manejar un aumento en el número de usuarios sin degradar el rendimiento, 
+# para que la calidad del servicio se mantenga incluso con una base de usuarios creciente.
+
+Scenario: Gestión de Carga y Rendimiento Escalable
+    Given que la base de usuarios de la aplicación crece significativamente y el número de solicitudes simultáneas aumenta,
+    When se incrementa la carga en el sistema debido a un mayor volumen de usuarios activos, 
+    Then la aplicación debe continuar operando de manera eficiente, manteniendo un rendimiento aceptable con tiempos de respuesta en menos de 
+    2 segundos para las solicitudes de los usuarios, sin experimentar degradación significativa en la calidad del servicio,
+    | Los usuarios experimentan un crecimiento masivo en el uso de la aplicación durante una campaña de promoción, con miles de solicitudes simultáneas. 
+      A pesar de la carga adicional, la aplicación continúa procesando cada solicitud dentro del tiempo esperado de 2 segundos, sin caídas en el servicio. |
+
+
+Feature: Escalabilidad
+# Como administrador de la aplicación, quiero que la aplicación pueda manejar un aumento en el número de usuarios sin degradar el rendimiento, 
+# para que la calidad del servicio se mantenga incluso con una base de usuarios creciente.
+
+Scenario: Simulación de usuarios concurridos
+    Given que se realiza una prueba de carga simulando una alta cantidad de usuarios concurrentes,
+    When se supervisa el comportamiento del sistema durante la prueba, 
+    Then la aplicación debe gestionar la carga adicional sin fallos o caídas del sistema, y debe continuar respondiendo de manera rápida y efectiva, 
+    asegurando que la experiencia del usuario permanezca consistente y sin interrupciones,
+    | Durante una prueba de carga que simula miles de usuarios interactuando simultáneamente con la aplicación, los tiempos de respuesta se mantienen 
+      dentro del límite de 2 segundos, sin que ocurran caídas del sistema o errores que interrumpan la experiencia del usuario. |
+
+
