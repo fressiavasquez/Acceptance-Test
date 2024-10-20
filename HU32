@@ -1,0 +1,21 @@
+Feature: Enviar archivos a terapeuta
+# Como usuario, quiero poder enviar archivos a mi terapeuta (imágenes, documentos) para compartir información relevante durante las sesiones.
+
+Scenario: Archivos enviados con éxito.
+    Given que el usuario selecciona archivos válidos para enviar a su terapeuta,
+    | Archivo válido |
+    | informe.pdf |
+    When el usuario envía los archivos,
+    Then el sistema debe transferir los archivos correctamente y mostrar un mensaje de éxito,
+    | "Los archivos se han enviado exitosamente." |
+
+Feature: Enviar archivos a terapeuta
+# Como usuario, quiero poder enviar archivos a mi terapeuta (imágenes, documentos) para compartir información relevante durante las sesiones.
+
+Scenario: Error al enviar archivos debido a formato no compatible o tamaño excedido.
+    Given que el usuario intenta enviar un archivo con un formato no compatible o que excede el tamaño permitido,
+    | Archivo válido |
+    | foto_invalida.txt |
+    When el usuario intenta enviar el archivo,
+    Then el sistema debe mostrar un mensaje de error indicando que el archivo no puede ser enviado,
+    | "Error: El archivo no puede ser enviado. Asegúrate de que el formato sea compatible y que no exceda el tamaño permitido." |
