@@ -1,0 +1,21 @@
+Feature: Pago de membresía 
+# Como usuario, quiero pagar por la membresía de manera segura dentro de la aplicación para mantener un control eficiente de mis finanzas.
+
+Scenario: Pago realizado con éxito.
+    Given que el usuario proporciona los detalles de pago válidos,
+    |    Método de Pago    |           Detalles         |
+    | "Tarjeta de Crédito" | "Visa 1234-5678-9012-3456" |
+    When el usuario confirma el pago,
+    Then el sistema debe procesar el pago exitosamente,
+    And el sistema muestra una confirmación de pago exitoso.
+
+Feature: Pago de membresía 
+# Como usuario, quiero pagar por la membresía de manera segura dentro de la aplicación para mantener un control eficiente de mis finanzas.
+
+Scenario: Error en el pago debido a método inválido o fondos insuficientes.
+    Given que el usuario proporciona un método de pago inválido o no tiene fondos suficientes,
+    |     Método de Pago   |        Estado      |
+    | "Tarjeta de Crédito" | "Tarjeta expirada" |
+    When el usuario intenta realizar el pago,
+    Then el sistema muestra un mensaje de error que dice "Error: Método de pago inválido o fondos insuficientes. Por favor, intenta de nuevo con otro método."
+ 
