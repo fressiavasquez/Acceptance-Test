@@ -1,0 +1,22 @@
+Feature: Notificaciones de mensajes
+# Como usuario, quiero recibir notificaciones cuando mi terapeuta me envíe un mensaje para no perder ninguna comunicación importante.
+
+Scenario: Notificación de mensaje recibido correctamente.
+    Given que el terapeuta envía un mensaje al usuario,
+    |               Terapeuta             |
+    | "¿Cómo te has sentido esta semana?" |
+    When el mensaje es enviado,
+    Then el usuario debe recibir una notificación que dice "Nuevo mensaje de tu terapeuta".
+
+Feature: Notificaciones de mensajes
+# Como usuario, quiero recibir notificaciones cuando mi terapeuta me envíe un mensaje para no perder ninguna comunicación importante.
+
+Scenario: No se recibe notificación si está desactivado el servicio de mensajes.
+    Given que el usuario ha desactivado las notificaciones de mensajes,
+    |                   Usuario                  |
+    | (Notificaciones de mensajes: Desactivadas) |
+    When el terapeuta envía un mensaje,
+    |                   Terapeuta                      |
+    | "Recuerda practicar las técnicas de relajación." |
+    Then el usuario no recibe ninguna notificación.
+ 
