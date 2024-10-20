@@ -1,0 +1,21 @@
+Feature: Ver términos y condiciones
+# Como usuario, quiero acceder a los términos y condiciones de la plataforma para estar al tanto de las políticas del servicio.
+
+Scenario: Términos y condiciones mostrados correctamente.
+    Given que el usuario accede a los términos y condiciones de la plataforma,
+    | Documento |
+    | "Términos y Condiciones de Servicio" |
+    When el usuario solicita ver los términos y condiciones,
+    Then el sistema debe mostrar el documento completo de términos y condiciones,
+    | "Política de Privacidad", "Uso de la Plataforma", y "Responsabilidades del Usuario" |
+
+Feature: Ver términos y condiciones
+# Como usuario, quiero acceder a los términos y condiciones de la plataforma para estar al tanto de las políticas del servicio.
+
+Scenario: Error al cargar los términos y condiciones.
+    Given que hay un problema técnico o el documento no está disponible,
+    | Documento |
+    | "Términos y Condiciones de Servicio" |
+    When el usuario intenta acceder a los términos y condiciones,
+    Then el sistema debe mostrar un mensaje de error indicando que no se pueden cargar los términos y condiciones,
+    | "Error: No se pueden cargar los términos y condiciones en este momento. Por favor, intenta de nuevo más tarde." |
