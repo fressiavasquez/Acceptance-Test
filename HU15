@@ -1,0 +1,23 @@
+Feature: Ver perfil de terapeuta
+# Como usuario, quiero ver el perfil detallado de un terapeuta para evaluar si es adecuado para mis necesidades.
+
+Scenario: El perfil del terapeuta se muestra correctamente.
+    Given que el usuario selecciona un terapeuta para ver su perfil,
+    |     Terapeuta    |
+    | "Dr. Patricia Montez" |
+    When el usuario accede al perfil del terapeuta,
+    Then el sistema muestra la información detallada del terapeuta correctamente,
+    And la información incluye especialidad, experiencia, y disponibilidad.
+    | Especialidad         |                 Experiencia                        |             Disponibilidad           |
+    | "Psicología Clínica" | "10 años de experiencia en trastornos de ansiedad" | "Lunes a Viernes, 9:00 AM - 5:00 PM" |
+
+Feature: Ver perfil de terapeuta
+# Como usuario, quiero ver el perfil detallado de un terapeuta para evaluar si es adecuado para mis necesidades.
+
+Scenario: Error al cargar el perfil del terapeuta.
+    Given que el perfil del terapeuta no está disponible o hay un problema técnico,
+    |            Terapeuta                    |
+    | "Dr. Patricia Montez" (perfil no disponible) |
+    When el usuario intenta ver el perfil,
+    Then el sistema muestra un mensaje de error que dice "Error: No se pudo cargar el perfil del terapeuta. Inténtalo de nuevo más tarde".
+ 
