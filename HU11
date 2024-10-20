@@ -1,0 +1,18 @@
+Feature: Notificaciones de sesión
+# Como usuario, quiero recibir notificaciones antes de cada sesión para recordar mis citas programadas.
+
+Scenario: Notificación recibida correctamente.
+    Given que una sesión está programada para el usuario:
+      | Fecha        | Hora         |
+      | "2024-10-20" | "15:00"      |
+    When la notificación de la sesión se envía,
+    Then el usuario recibe una notificación que dice "Tienes una sesión programada el 2024-10-20 a las 15:00".
+
+
+Feature: Notificaciones de sesión
+# Como usuario, quiero recibir notificaciones antes de cada sesión para recordar mis citas programadas.
+
+Scenario: No se recibe notificación si se desactivan las alertas.
+    Given que el usuario ha desactivado las notificaciones de alertas,
+    When se envía una notificación de sesión,
+    Then el usuario no recibe ninguna notificación.
