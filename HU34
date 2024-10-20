@@ -1,0 +1,23 @@
+Feature: Revisión de progreso
+# Como usuario, quiero ver el progreso de mis sesiones y evaluaciones para saber cómo ha mejorado mi bienestar.
+
+Scenario: Progreso mostrado correctamente.
+    Given que el usuario ha completado sesiones y evaluaciones,
+    | Sesiones | Evaluaciones |
+    |    5     |      3       |
+    When el usuario accede a la sección de progreso,
+    Then el sistema debe mostrar un resumen detallado del progreso del usuario basado en las sesiones y evaluaciones,
+    | Numéro de sesiones completadas | 5 |
+    | Promedio de calificaciones en las evaluaciones | 4.5/5 |
+    | Mejoras observadas | "Reducción del 30% en niveles de ansiedad" |
+    | Objetivos alcanzados | "Mejora en la comunicación y manejo de estrés" |
+
+Feature: Revisión de progreso
+# Como usuario, quiero ver el progreso de mis sesiones y evaluaciones para saber cómo ha mejorado mi bienestar.
+
+Scenario: No se muestra progreso debido a datos insuficientes.
+    Given que el usuario no ha registrado suficientes sesiones o evaluaciones,
+    When el usuario intenta ver el progreso,
+    Then el sistema debe mostrar un mensaje indicando que no hay suficientes datos para mostrar el progreso,
+    | "No hay suficientes datos para mostrar el progreso. Por favor, completa más sesiones y evaluaciones para obtener un resumen de tu avance." |
+ 
