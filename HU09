@@ -1,0 +1,22 @@
+Feature: Ver historial de sesiones
+# Como usuario, quiero ver el historial de mis sesiones para revisar las fechas y terapeutas con los que he tenido sesiones.
+
+Scenario: El historial muestra las sesiones anteriores correctamente.
+    Given que el usuario ha tenido sesiones previas:
+      | Fecha        | Hora        | Terapeuta      |
+      | "2024-09-10" | "10:00"     | "Dra. Gómez"   |
+      | "2024-09-24" | "14:00"     | "Dr. Martinez"    |
+    When el usuario accede a la vista del historial de sesiones,
+    Then el sistema muestra un registro completo de las sesiones anteriores:
+      | Fecha        | Hora        | Terapeuta      |
+      | "2024-09-10" | "10:00"     | "Dra. Gómez"   |
+      | "2024-09-24" | "14:00"     | "Dr. PMartinez"    |
+    And el sistema muestra un mensaje que dice "Este es tu historial de sesiones".
+
+Feature: Ver historial de sesiones
+# Como usuario, quiero ver el historial de mis sesiones para revisar las fechas y terapeutas con los que he tenido sesiones.
+
+Scenario: No se muestran sesiones si no hay historial.
+    Given que el usuario no ha tenido sesiones previas,
+    When el usuario accede a la vista del historial de sesiones,
+    Then el sistema muestra un mensaje que dice "No hay historial de sesiones disponible".
