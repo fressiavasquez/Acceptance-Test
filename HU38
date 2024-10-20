@@ -1,0 +1,26 @@
+Feature: Usabilidad
+# Como usuario de la aplicación, quiero que la interfaz sea intuitiva y fácil de navegar, 
+# para que pueda usar la aplicación sin necesidad de asistencia técnica y pueda acceder a las funciones sin complicaciones.
+
+Scenario: Interfaz Intuitiva y Accesibilidad
+    Given que un nuevo usuario abre la aplicación por primera vez y comienza a interactuar con ella, 
+    When el usuario explora las diferentes funcionalidades y opciones de la aplicación,
+    Then debe ser capaz de completar tareas comunes, como iniciar una conversación, acceder a recursos, y obtener respuestas 
+    sin necesidad de asistencia técnica, gracias a una interfaz de usuario intuitiva y fácil de usar que minimice la curva de aprendizaje,
+    | Un usuario nuevo abre la aplicación, navega sin esfuerzo por el menú principal, inicia una conversación con el psicólogo virtual, y 
+    encuentra fácilmente los recursos o herramientas necesarias, todo sin necesidad de buscar ayuda adicional o tutoriales, gracias a una 
+    interfaz limpia y bien organizada. |
+
+
+Feature: Usabilidad
+# Como usuario de la aplicación, quiero que la interfaz sea intuitiva y fácil de navegar, 
+# para que pueda usar la aplicación sin necesidad de asistencia técnica y pueda acceder a las funciones sin complicaciones.
+
+Scenario: Interfaz de la aplicación
+    Given que un usuario está utilizando la aplicación en su primera sesión, 
+    When navega por la interfaz de la aplicación, 
+    Then los elementos de la interfaz, como botones, menús y opciones, deben estar claramente etiquetados y ser fácilmente accesibles, 
+    con guías o tutoriales opcionales disponibles para ayudar a los usuarios a entender cómo utilizar las funciones principales sin confusión,
+    | Un usuario ingresa a la aplicación por primera vez, encuentra botones bien visibles y etiquetados claramente, como "Iniciar sesión", 
+    "Conversar con un terapeuta", y "Mi progreso". Sin necesidad de asistencia, accede fácilmente a cada sección, y si lo desea, 
+    puede ver un breve tutorial opcional que le explica cómo utilizar las funciones más avanzadas de la aplicación. |
