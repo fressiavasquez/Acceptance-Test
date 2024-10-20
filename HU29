@@ -1,0 +1,24 @@
+Feature: Actualización de app
+# Como usuario, quiero actualizar la aplicación cuando haya una nueva versión disponible para disfrutar de nuevas funcionalidades o correcciones.
+
+Scenario: Actualización descargada e instalada con éxito.
+    Given que una nueva versión de la aplicación está disponible,
+    | Versión disponible |
+    | "2.5.1" |
+    When el usuario inicia el proceso de actualización,
+    Then el sistema debe descargar e instalar la actualización, mostrando un mensaje de éxito al finalizar,
+    And el sistema muestra un mensaje que dice:
+    | "Actualización completada con éxito. Ahora estás usando la versión 2.5.1." | 
+
+Feature: Actualización de app
+# Como usuario, quiero actualizar la aplicación cuando haya una nueva versión disponible para disfrutar de nuevas funcionalidades o correcciones.
+
+Scenario: Error al intentar actualizar la app debido a falta de espacio.
+    Given que el dispositivo del usuario no tiene suficiente espacio para la actualización,
+    | Espacio disponible |
+    | "200 MB" |
+    | Espacio requerido |
+    | "500 MB" |
+    When el usuario intenta actualizar la aplicación,
+    Then el sistema debe mostrar un mensaje de error indicando que no hay suficiente espacio para la actualización,
+    | "Error: No hay suficiente espacio para la actualización. Por favor, libera espacio en tu dispositivo y vuelve a intentar." |
