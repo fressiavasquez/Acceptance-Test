@@ -1,0 +1,24 @@
+Feature: Evaluación posterior a la sesión
+# Como usuario, quiero dejar una evaluación de mi sesión para proporcionar feedback sobre el servicio recibido.
+
+Scenario: Evaluación registrada exitosamente.
+    Given que el usuario completa el formulario de evaluación después de una sesión,
+    |            Pregunta             |             Respuesta     |
+    | "¿Cómo calificarías la sesión?" |       "5 - Excelente"     |
+    | "Comentarios adicionales"       | "Muy útil y profesional." |
+    When el usuario envía la evaluación,
+    Then el sistema registra la evaluación,
+    And muestra un mensaje que dice "Gracias por tu feedback. Evaluación enviada exitosamente".
+
+Feature: Evaluación posterior a la sesión
+# Como usuario, quiero dejar una evaluación de mi sesión para proporcionar feedback sobre el servicio recibido.
+
+Scenario: Error de conexión al intentar enviar una evaluación.
+    Given que el usuario intenta enviar una evaluación,
+    |             Pregunta            |                    Respuesta                         |
+    | "¿Cómo calificarías la sesión?" |                    "4 - Buena"                       |
+    | "Comentarios adicionales"       | "Me gustó, pero me gustaría más tiempo para hablar." |
+    And el usuario tiene problemas de conexión a internet,
+    When el usuario envía la evaluación,
+    Then el sistema muestra un mensaje de error que dice "Error de conexión: No se pudo enviar la evaluación. Por favor, verifica tu conexión y vuelve a intentarlo".
+ 
