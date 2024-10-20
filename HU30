@@ -1,0 +1,21 @@
+Feature: Cierre de sesión
+# Como usuario, quiero cerrar sesión cuando ya no esté usando la aplicación para garantizar la seguridad de mi cuenta.
+
+Scenario: Cierre de sesión exitoso.
+    Given que el usuario ha iniciado sesión en la aplicación,
+    When el usuario elige cerrar sesión,
+    | Opción seleccionada |
+    | "Cerrar sesión" |
+    Then el sistema debe cerrar la sesión del usuario y redirigirlo a la pantalla de inicio de sesión,
+    | "Has cerrado sesión correctamente." |
+
+Feature: Cierre de sesión
+# Como usuario, quiero cerrar sesión cuando ya no esté usando la aplicación para garantizar la seguridad de mi cuenta.
+
+Scenario: Error al cerrar sesión debido a un problema técnico.
+    Given que el usuario intenta cerrar sesión, pero hay un problema técnico,
+    When el usuario elige cerrar sesión,
+    | Opción seleccionada |
+    | "Cerrar sesión" |
+    Then el sistema debe mostrar un mensaje de error indicando que no se puede cerrar la sesión en ese momento,
+    | "Error: No se puede cerrar la sesión en este momento. Por favor, intenta nuevamente más tarde." |
