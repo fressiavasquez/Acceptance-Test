@@ -1,0 +1,18 @@
+Feature: Calificación de terapeuta
+# Como usuario, quiero calificar al terapeuta después de cada sesión para mejorar la calidad del servicio.
+
+Scenario: Calificación registrada exitosamente
+    Given que el usuario proporciona una calificación después de una sesión,
+    | Calificación  |           Comentario         |
+    | "5 estrellas" | "Excelente atención y apoyo" |
+    When el usuario envía la calificación,
+    Then el sistema debe registrar la calificación y mostrar un mensaje de éxito
+
+Feature: Calificación de terapeuta
+# Como usuario, quiero calificar al terapeuta después de cada sesión para mejorar la calidad del servicio.
+
+Scenario: Error al intentar enviar una calificación sin conexión
+    Given que el usuario intenta enviar una calificación, pero está desconectado de internet
+    When el usuario envía la calificación
+    Then el sistema debe mostrar un mensaje de error indicando la falta de conexión
+ 
